@@ -34,6 +34,7 @@ def top(request):
 def ahahah():
     logging.debug('serving counts...')
     categories, data = top(request)
+    print("in ahahaha", data)
     return render_template('index.html',
                            categories=categories,
                            data=data)
