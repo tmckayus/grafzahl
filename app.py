@@ -34,7 +34,8 @@ def top(request):
 def ahahah():
     logging.debug('serving counts...')
     categories, data = top(request)
-    print("in ahahaha", data)
+    categories=list(categories)
+    data=list(data)
     return render_template('index.html',
                            categories=categories,
                            data=data)
@@ -43,6 +44,8 @@ def ahahah():
 def dataonly():
     logging.debug('serving data...')
     categories, data = top(request)
+    categories=list(categories)
+    data=list(data)
     data.insert(0, "counts")
     return jsonify({"categories": categories, "data": [data]})
 
